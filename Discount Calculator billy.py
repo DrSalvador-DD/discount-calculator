@@ -19,7 +19,12 @@ def calculate_discount():
         if price < 0 or discount < 0:
             label_result.config(text="Values must be positive numbers.")
             return
-
+        
+        # Check discount range
+        if discount < 0 or discount > 100:
+            label_result.config(text="Discount must be between 0 and 100.")
+            return
+        
         # Calculate final price
         final_price = price - (price * discount / 100)
 
